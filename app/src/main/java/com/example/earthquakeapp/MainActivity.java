@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
         list.add(new MyWord("1.2","chandigarh","15feb"));
         list.add(new MyWord("1.3","chandigarh","10feb"));
         list.add(new MyWord("1.6","chandigarh","11feb"));
-        //vese hi nahi
+        //vese hi
 
         ListView listView = findViewById(R.id.list_layout);
         CustomAdapter adapter = new CustomAdapter(this,list);
