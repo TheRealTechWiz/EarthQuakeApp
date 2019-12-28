@@ -13,13 +13,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ArrayList<MyWord> list = new ArrayList<>();
-        list.add(new MyWord("1.1","chandigarh","12feb"));
-        list.add(new MyWord("1.2","chandigarh","15feb"));
-        list.add(new MyWord("1.3","chandigarh","10feb"));
-        list.add(new MyWord("1.6","chandigarh","11feb"));
-        //vese hi nahi
+//        ArrayList<MyWord> list = new ArrayList<>();
+//        list.add(new MyWord("1.1","chandigarh","12feb"));
+//        list.add(new MyWord("1.2","chandigarh","15feb"));
+//        list.add(new MyWord("1.3","chandigarh","10feb"));
+//        list.add(new MyWord("1.6","chandigarh","11feb"));
 
+        ArrayList<MyWord> list = QueryUtils.extractEarthquakes();
         ListView listView = findViewById(R.id.list_layout);
         CustomAdapter adapter = new CustomAdapter(this,list);
         listView.setAdapter(adapter);
