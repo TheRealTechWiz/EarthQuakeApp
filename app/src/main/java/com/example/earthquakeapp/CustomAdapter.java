@@ -10,7 +10,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 
 public class CustomAdapter extends ArrayAdapter<MyWord> {
@@ -32,8 +34,30 @@ public class CustomAdapter extends ArrayAdapter<MyWord> {
         TextView tloc = listitemView.findViewById(R.id.location);
         tloc.setText(currentWord.getloc());
         TextView tdate = listitemView.findViewById(R.id.date);
-        tdate.setText(currentWord.getdate());
+        TextView ttime = listitemView.findViewById(R.id.time);
+
+        Date dateObject = new Date(currentWord.getdate());
+
+        String formattedDate = formatDate(dateObject);
+        String formattedTime = formatTime(dateObject);
+
+        tdate.setText(formattedDate);
+        ttime.setText(formattedTime);
 
         return listitemView;
     }
+
+    private String formatDate(Date dateObject) {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-mm-yyyy");
+        return dateFormat.format(dateObject);
+    }
+
+    /**
+     * Return the formatted date string (i.e. "4:30 PM") from a Date object.
+     */
+    private String formatTime(Date dateObject) {
+        SimpleDateFormat timeFormat = new SimpleDateFormat("h:mm a");
+        return timeFormat.format(dateObject);
+    }
+
 }

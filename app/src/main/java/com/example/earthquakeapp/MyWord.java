@@ -3,14 +3,14 @@ package com.example.earthquakeapp;
 public class MyWord {
     String mmag;
     String mloc;
-    String mdate;
+    long mdate;
 
-    public MyWord(String mag, String loc, String date){
+    public MyWord(String mag, String loc, long date){
         mmag = mag;
         mloc = loc;
         mdate = date;
     }
     public String getmag(){return mmag;}
     public String getloc(){return mloc;}
-    public String getdate(){return mdate;}
+    public long getdate(){return mdate;}
 }

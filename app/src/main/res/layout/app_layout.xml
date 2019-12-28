@@ -27,4 +27,12 @@
         android:text="date"
         android:textSize="16sp">
     </TextView>
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:id="@+id/time"
+        android:text="time"
+        android:textSize="16sp">
+    </TextView>
 </LinearLayout>
