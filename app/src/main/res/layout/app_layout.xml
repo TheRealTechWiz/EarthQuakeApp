@@ -11,14 +11,29 @@
         android:text="magnitude"
         android:textSize="16sp">
     </TextView>
-    <TextView
+
+    <LinearLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:id="@+id/location"
-        android:text="location"
-        android:textSize="16sp">
+        android:orientation="vertical">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="offset"
+        android:textSize="12sp"
+
+        android:id="@+id/offset">
     </TextView>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="location"
+        android:textSize="16sp"
+        android:id="@+id/place">
+    </TextView>
+    </LinearLayout>
+
     <TextView
         android:layout_width="0dp"
         android:layout_height="wrap_content"

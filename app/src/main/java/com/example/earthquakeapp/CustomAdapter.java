@@ -16,6 +16,7 @@ import java.util.Date;
 
 
 public class CustomAdapter extends ArrayAdapter<MyWord> {
+    private static final String LOCATION_SEPARATOR = " of ";
 
     public CustomAdapter(Context context, ArrayList<MyWord> arrayList) {
         super(context,0, arrayList);
@@ -31,13 +32,38 @@ public class CustomAdapter extends ArrayAdapter<MyWord> {
 
         TextView tmag = listitemView.findViewById(R.id.magnitude);
         tmag.setText(currentWord.getmag());
-        TextView tloc = listitemView.findViewById(R.id.location);
-        tloc.setText(currentWord.getloc());
+
+
+        TextView locoffset = listitemView.findViewById(R.id.offset);
+        TextView locplace = listitemView.findViewById(R.id.place);
+
+        String name = currentWord.getloc();
+//        String[] arraystring  = name.split("of ");
+        String ofset;
+        String place;
+//        if (arraystring.length == 2){
+//             ofset = arraystring[0]+"of";
+//             place = arraystring[1]; }
+//        else {
+//            ofset = "Near";
+//            place = arraystring[0]; }
+
+
+        if (name.contains(LOCATION_SEPARATOR)) {
+            String[] parts = name.split(LOCATION_SEPARATOR);
+            ofset = parts[0] + LOCATION_SEPARATOR;
+            place = parts[1];
+        } else {
+            ofset = "Near the";
+            place = name;
+        }
+         locoffset.setText(ofset);
+         locplace.setText(place);
+
+
         TextView tdate = listitemView.findViewById(R.id.date);
         TextView ttime = listitemView.findViewById(R.id.time);
-
         Date dateObject = new Date(currentWord.getdate());
-
         String formattedDate = formatDate(dateObject);
         String formattedTime = formatTime(dateObject);
 
