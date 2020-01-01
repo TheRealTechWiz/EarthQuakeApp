@@ -52,7 +52,7 @@ public final class QueryUtils {
             for (int i = 0; i < jsonArray.length(); i++){
                 JSONObject fobject = jsonArray.getJSONObject(i);
                 JSONObject properties = fobject.getJSONObject("properties");
-                String mag = properties.getString("mag");
+                double mag = properties.getDouble("mag");
                 String place = properties.getString("place");
                 long time = properties.getLong("time");
                 earthquakes.add(new MyWord(mag,place,time));

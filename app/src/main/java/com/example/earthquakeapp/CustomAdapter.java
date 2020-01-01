@@ -10,6 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -30,10 +31,13 @@ public class CustomAdapter extends ArrayAdapter<MyWord> {
         }
         MyWord currentWord = getItem(position);
 
+        //----------magnitude------
         TextView tmag = listitemView.findViewById(R.id.magnitude);
-        tmag.setText(currentWord.getmag());
+        String mag = formatMagnitude(currentWord.getmag());
+        tmag.setText(mag);
 
 
+        //-----------location------
         TextView locoffset = listitemView.findViewById(R.id.offset);
         TextView locplace = listitemView.findViewById(R.id.place);
 
@@ -60,7 +64,7 @@ public class CustomAdapter extends ArrayAdapter<MyWord> {
          locoffset.setText(ofset);
          locplace.setText(place);
 
-
+        // ---------Date-----
         TextView tdate = listitemView.findViewById(R.id.date);
         TextView ttime = listitemView.findViewById(R.id.time);
         Date dateObject = new Date(currentWord.getdate());
@@ -71,6 +75,10 @@ public class CustomAdapter extends ArrayAdapter<MyWord> {
         ttime.setText(formattedTime);
 
         return listitemView;
+    }
+    private String formatMagnitude(double magnitude) {
+        DecimalFormat magnitudeFormat = new DecimalFormat("0.0");
+        return magnitudeFormat.format(magnitude);
     }
 
     private String formatDate(Date dateObject) {

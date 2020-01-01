@@ -1,16 +1,16 @@
 package com.example.earthquakeapp;
 
 public class MyWord {
-    String mmag;
+    double mmag;
     String mloc;
     long mdate;
 
-    public MyWord(String mag, String loc, long date){
+    public MyWord(double mag, String loc, long date){
         mmag = mag;
         mloc = loc;
         mdate = date;
     }
-    public String getmag(){return mmag;}
+    public double getmag(){return mmag;}
     public String getloc(){return mloc;}
     public long getdate(){return mdate;}
 }
